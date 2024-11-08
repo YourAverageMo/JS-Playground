@@ -1,4 +1,19 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 2em;
+    display: block;
+    text-align: center;
+}
+
+.buttons {
+    padding: 10px 20px;
+    color: wheat;
+    background-color: chocolate;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
+.buttons:hover{
+    background-color: rgb(233, 140, 74);
 }

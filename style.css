@@ -1,29 +1,66 @@
-body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 6.5rem;
-    font-weight: bold;
-    text-align: center;
+body{
     margin: 0;
-}
-
-#clock-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: hsl(0, 0%, 95%);
 }
 
-#clock
+#calculator{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: hsl(0, 0%, 15%);
+    border-radius: 15px;
+    max-width: 500px;
+    overflow: hidden;
 
-.buttons {
-    padding: 10px 20px;
-    color: wheat;
-    background-color: chocolate;
-    border-radius: 10px;
+}
+
+#display{
+    width: 100%;
+    padding: 20px;
+    font-size: 5rem;
+    text-align: left;
+    border: none;
+    background-color: hsl(0, 0%, 20%);
+    color: white;
+}
+
+#keys{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    padding: 25px;
+}
+
+button{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    border: none;
+    background-color: hsl(0, 0%, 30%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.25s;
+    transition: 0.2s;
 }
 
-.buttons:hover {
-    background-color: rgb(233, 140, 74);
+button:hover{
+    background-color: hsl(0, 0%, 50%);
+}
+
+button:active{
+    background-color: hsl(0, 0%, 100%);
+}
+
+.operator-btn{
+    background-color: hsl(16, 100%, 50%);
+}
+
+.operator-btn:hover{
+    background-color: hsl(16, 100%, 70%);
+}
+.operator-btn:active{
+    background-color: hsl(16, 100%, 100%);
 }

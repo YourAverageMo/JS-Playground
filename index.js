@@ -1,36 +1,12 @@
-let day = 1;
+function updateClock() {
+    const now = new Date()
+    const hours = now.getHours().toString().padStart(2,0)
+    const minutes = now.getMinutes().toString().padStart(2,0)
+    const seconds = now.getSeconds().toString().padStart(2,0)
 
-switch (day) {
-    case 1:
-        console.log(`It is monday!`);
-
-        break;
-    case 2:
-        console.log(`Tusday`);
-
-        break;
-    case 3:
-        console.log(`Wed`);
-
-        break;
-    case 4:
-        console.log(`Thurs`);
-
-        break;
-    case 5:
-        console.log(`Fri`);
-
-        break;
-    case 6:
-        console.log(`Sat`);
-
-        break;
-    case 7:
-        console.log(`Sun`);
-
-        break;
-    default:
-        console.log(`${day} is not a day!`);
-
-        break;
+    const timeString = `${hours}:${minutes}:${seconds}`
+    document.getElementById(`clock`).textContent = timeString
 }
+
+updateClock()
+setInterval(updateClock,1000)

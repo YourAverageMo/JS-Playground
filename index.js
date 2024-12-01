@@ -1,41 +1,22 @@
+async function fetchData() {
+    try{
+        const pokemonName = document.getElementById(`pokemonName`).value.toLowerCase()
+        
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
 
-const moveAmount = 100
-
-let x = 0
-let y = 0
-
-const myBox = document.getElementById(`myBox`)
-
-document.addEventListener("keydown", event => {
-    if (event.key.startsWith(`Arrow`)) {
-        switch (event.key) {
-            case "ArrowUp":
-                myBox.textContent = "☝🏽"
-                myBox.style.backgroundColor = `tomato`
-                y -= moveAmount
-                break;
-            case "ArrowDown":
-                myBox.textContent = "👇🏽"
-                myBox.style.backgroundColor = `tomato`
-                y += moveAmount
-                break;
-            case "ArrowLeft":
-                myBox.textContent = "👈🏽"
-                myBox.style.backgroundColor = `tomato`
-                x -= moveAmount
-                break;
-            case "ArrowRight":
-                myBox.textContent = "👉🏽"
-                myBox.style.backgroundColor = `tomato`
-                x += moveAmount
-                break;
+        if (!response.ok) {
+            throw new Error(`Could not fetch data`)
         }
+        const data = await response.json()
+        const pokemonSprite = data.sprites.front_default
+        const imgElement = document.getElementById(`pokemonSprite`)
 
-        myBox.style.top = `${y}px`
-        myBox.style.left = `${x}px`
+        imgElement.src = pokemonSprite
+        imgElement.style.display = `block`
     }
-})
-document.addEventListener("keyup", event => {
-    myBox.textContent = "😜"
-    myBox.style.backgroundColor = `lightblue`
-})    
+    catch(error){
+        console.error(error)
+    }
+}
+
+fetchData()

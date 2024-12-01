@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 body {
+=======
+/* body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 6.5rem;
+    font-weight: bold;
+    text-align: center;
+>>>>>>> 8d1c68b (pokemon api)
     margin: 0;
 }
 
@@ -13,4 +21,21 @@ body {
     text-align: center;
     position: relative;
 
+<<<<<<< HEAD
 }
+=======
+#clock
+
+.buttons {
+    padding: 10px 20px;
+    color: wheat;
+    background-color: chocolate;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
+.buttons:hover {
+    background-color: rgb(233, 140, 74);
+} */
+>>>>>>> 8d1c68b (pokemon api)

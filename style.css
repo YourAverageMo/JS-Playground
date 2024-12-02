@@ -1,41 +1,47 @@
-<<<<<<< HEAD
 body {
-=======
-/* body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 6.5rem;
     font-weight: bold;
-    text-align: center;
->>>>>>> 8d1c68b (pokemon api)
     margin: 0;
-}
-
-#myBox {
-    background-color: aqua;
-    width: 300px;
-    height: 300px;
-    font-size: 4.5rem;
-    font-weight: bold;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
-    position: relative;
-
-<<<<<<< HEAD
 }
-=======
-#clock
 
-.buttons {
-    padding: 10px 20px;
-    color: wheat;
-    background-color: chocolate;
-    border-radius: 10px;
+h1{
+    font-size: 3.5rem;
+    color: hsl(0, 0%, 20%);
+}
+
+.choices{
+    margin-bottom: 30px;
+}
+
+.choices button{
+    font-size: 7.5rem;
+    min-width: 160px;
+    margin: 0px 10px;
+    border-radius: 250px;
+    background-color: hsl(209, 92%, 68%);
     cursor: pointer;
-    transition: background-color 0.25s;
+    transition: background-color 0.5s ease;
 }
 
-.buttons:hover {
-    background-color: rgb(233, 140, 74);
-} */
->>>>>>> 8d1c68b (pokemon api)
+.choices button:hover{
+    background-color: hsl(209, 75%, 90%);
+}
+
+#playerDisplay, #computerDisplay{
+    font-size: 2.5rem;
+}
+
+#resultDisplay{
+    font-size: 5rem;
+    margin: 30px 0px;
+}
+
+.greenText {
+    color: hsl(91, 79.80%, 51.60%);
+}
+.redText {
+    color: hsl(9, 80%, 52%);
+}

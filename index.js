@@ -1,22 +1,43 @@
-async function fetchData() {
-    try{
-        const pokemonName = document.getElementById(`pokemonName`).value.toLowerCase()
-        
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+const choices = [`rock`, `paper`,`scissors`]
+const playerDisplay = document.getElementById(`playerDisplay`)
+const computerDisplay = document.getElementById(`computerDisplay`)
+const resultDisplay = document.getElementById(`resultDisplay`)
 
-        if (!response.ok) {
-            throw new Error(`Could not fetch data`)
-        }
-        const data = await response.json()
-        const pokemonSprite = data.sprites.front_default
-        const imgElement = document.getElementById(`pokemonSprite`)
+function playGame(playerChioce) {
+    resultDisplay.classList.remove(`greenText`, `redText`)
 
-        imgElement.src = pokemonSprite
-        imgElement.style.display = `block`
+    const computerChoice = choices[Math.floor(Math.random() * 3)]
+
+    console.log(computerChoice);
+    let result = ``
+
+    if (playerChioce === computerChoice) {
+        result = `ITS A TIE`
     }
-    catch(error){
-        console.error(error)
+    else {
+        switch (playerChioce) {
+            case `rock`:
+                result = (computerChoice === `scissors`) ? `YOU WIN` : `YOU LOSE`
+                break;
+            case `paper`:
+                result = (computerChoice === `rock`) ? `YOU WIN` : `YOU LOSE`
+                break;
+            case `scissors`:
+                result = (computerChoice === `paper`) ? `YOU WIN` : `YOU LOSE`
+                break;
+        }
+    }
+
+    playerDisplay.textContent = `PLAYER: ${playerChioce}`
+    computerDisplay.textContent = `COMPUTER: ${computerChoice}`
+    resultDisplay.textContent = result
+
+    switch (result) {
+        case `YOU WIN`:
+            resultDisplay.classList.add(`greenText`)
+            break;
+        case `YOU LOSE`:
+            resultDisplay.classList.add(`redText`)
+            break;
     }
 }
-
-fetchData()

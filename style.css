@@ -1,47 +1,42 @@
-body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.slider{
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+.slider img{
+    width: 100%;
+    display: none;
+
 }
 
-h1{
-    font-size: 3.5rem;
-    color: hsl(0, 0%, 20%);
+img.displaySlide{
+    display: block;
+    animation-name: fade;
+    animation-duration: 1.5s;
+    
 }
 
-.choices{
-    margin-bottom: 30px;
-}
-
-.choices button{
-    font-size: 7.5rem;
-    min-width: 160px;
-    margin: 0px 10px;
-    border-radius: 250px;
-    background-color: hsl(209, 92%, 68%);
+.slider button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
     cursor: pointer;
-    transition: background-color 0.5s ease;
 }
 
-.choices button:hover{
-    background-color: hsl(209, 75%, 90%);
+.prev{
+    left: 0;
 }
 
-#playerDisplay, #computerDisplay{
-    font-size: 2.5rem;
+.next{
+    right: 0;
 }
-
-#resultDisplay{
-    font-size: 5rem;
-    margin: 30px 0px;
-}
-
-.greenText {
-    color: hsl(91, 79.80%, 51.60%);
-}
-.redText {
-    color: hsl(9, 80%, 52%);
+@keyframes fade{
+    from{opacity: .5;}
+    to{opacity: 1;}
 }

@@ -1,43 +1,34 @@
-const choices = [`rock`, `paper`,`scissors`]
-const playerDisplay = document.getElementById(`playerDisplay`)
-const computerDisplay = document.getElementById(`computerDisplay`)
-const resultDisplay = document.getElementById(`resultDisplay`)
+const slides = document.querySelectorAll(`.slides img`)
+let slideIndex = 0
+let intervalId = null
 
-function playGame(playerChioce) {
-    resultDisplay.classList.remove(`greenText`, `redText`)
+document.addEventListener(`DOMContentLoaded`, initializeSlider)
 
-    const computerChoice = choices[Math.floor(Math.random() * 3)]
+function initializeSlider() {
+    slides[slideIndex].classList.add(`displaySlide`)}
+    intervalId = setInterval(nextSlide,5000)
 
-    console.log(computerChoice);
-    let result = ``
-
-    if (playerChioce === computerChoice) {
-        result = `ITS A TIE`
+function showSlide(index) {
+    if (index >= slides.length) {
+        slideIndex = 0
     }
-    else {
-        switch (playerChioce) {
-            case `rock`:
-                result = (computerChoice === `scissors`) ? `YOU WIN` : `YOU LOSE`
-                break;
-            case `paper`:
-                result = (computerChoice === `rock`) ? `YOU WIN` : `YOU LOSE`
-                break;
-            case `scissors`:
-                result = (computerChoice === `paper`) ? `YOU WIN` : `YOU LOSE`
-                break;
-        }
+    else if(index<0){
+        slideIndex = slides.length -1
     }
+    
+    slides.forEach(slide => {
+        slide.classList.remove(`displaySlide`)
+    })
+    slides[slideIndex].classList.add(`displaySlide`)
+}
 
-    playerDisplay.textContent = `PLAYER: ${playerChioce}`
-    computerDisplay.textContent = `COMPUTER: ${computerChoice}`
-    resultDisplay.textContent = result
+function prevSlide() {
+    clearInterval(intervalId)
+    slideIndex--
+    showSlide(slideIndex)
+}
 
-    switch (result) {
-        case `YOU WIN`:
-            resultDisplay.classList.add(`greenText`)
-            break;
-        case `YOU LOSE`:
-            resultDisplay.classList.add(`redText`)
-            break;
-    }
+function nextSlide() {
+    slideIndex++
+    showSlide(slideIndex)
 }
